@@ -9,7 +9,7 @@ using JLD
     @test flat_sh == ones(20,10)
 end
 
-testdata = JLD.load("testdata\\testdata.jld")
+testdata = JLD.load(joinpath(@__DIR__,"testdata","testdata.jld"))
 dem = testdata["dem"]
 @testset "shadowing" begin
     @test testdata["sh_30_30"] == shadowing(dem,30,30,0.5)
